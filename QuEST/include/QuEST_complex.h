@@ -39,8 +39,8 @@ typedef complex<double> double_complex;
 typedef complex<long double> long_double_complex;
 
 // enable C-style funcs in C++
-#define creal(x) real(x)
-#define cimag(x) imag(x)
+#define creal(x) (x).real()
+#define cimag(x) (x).imag()
 #define carg(x) arg(x)
 #define cabs(x) abs(x)
 
