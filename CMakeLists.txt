@@ -59,7 +59,7 @@ add_custom_target( QuESTPy DEPENDS QuEST)
 # -----------------------------------------------------------------------------
 
 if (${TESTING})
-  set(Python_ADDITIONAL_VERSIONS 3.4;3.5;3.6;3.7;3.8)
+  set(Python_ADDITIONAL_VERSIONS 3.8;3.7;3.6;3.5;3.4)
   find_package(PythonInterp)
   if ((NOT PYTHONINTERP_FOUND) OR (PYTHON_VERSION_MAJOR LESS 3)  OR (PYTHON_VERSION_MINOR LESS 4))
     set(TESTING OFF CACHE BOOL  "Enable test suite functionality -- requires test suite available" FORCE)
