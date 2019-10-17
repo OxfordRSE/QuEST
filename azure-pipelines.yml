@@ -5,15 +5,15 @@ strategy:
       imageName: 'ubuntu-18.04'
       pythonVer: '3.7'
       cmakeConfigArgs: ''
-      cmakeBuildArgs: ''
-      jobType: 'testing'
+      cmakeBuildArgs: '--target QuEST'
+      jobType: 'python-testing'
     # Ubuntu 16.04 (testing)
     Ubuntu-16-test:
       imageName: 'ubuntu-16.04'
       pythonVer: '3.5'
       cmakeConfigArgs: ''
-      cmakeBuildArgs: ''
-      jobType: 'testing'
+      cmakeBuildArgs: '--target QuEST'
+      jobType: 'python-testing'
 #    # Ubuntu latest (coverage)
 #    Ubuntu-coverage:
 #      imageName: 'ubuntu-16.04'
@@ -25,22 +25,22 @@ strategy:
       imageName: 'macOS-10.14'
       pythonVer: '3.7'
       cmakeConfigArgs: ''
-      cmakeBuildArgs: ''
-      jobType: 'testing'
+      cmakeBuildArgs: '--target QuEST'
+      jobType: 'compile-only'
     # macOS High Sierra (testing)
     macOS-13-test:
       imageName: 'macOS-10.13'
       pythonVer: '3.5'
       cmakeConfigArgs: ''
-      cmakeBuildArgs: ''
-      jobType: 'testing'
+      cmakeBuildArgs: '--target QuEST'
+      jobType: 'compile-only'
     # Windows (testing)
     Windows-unit:
       imageName: 'windows-2019'
       pythonVer: '3.7'
       cmakeConfigArgs: ''
-      cmakeBuildArgs: ''
-      jobType: 'testing'
+      cmakeBuildArgs: '--target QuEST'
+      jobType: 'compile-only'
 
 trigger:
   - master
@@ -77,7 +77,7 @@ steps:
 
   - script: ctest -V
     displayName: 'Unit tests'
-    condition: in(variables['jobType'], 'testing', 'coverage')
+    condition: in(variables['jobType'], 'python-testing', 'coverage')
     workingDirectory: 'build'
 
   - script: |
