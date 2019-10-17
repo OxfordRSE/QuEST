@@ -10,7 +10,7 @@ strategy:
     # Ubuntu 16.04 (testing)
     Ubuntu-16-test:
       imageName: 'ubuntu-16.04'
-      pythonVer: '3.4'
+      pythonVer: '3.5'
       cmakeConfigArgs: ''
       cmakeBuildArgs: ''
       jobType: 'testing'
