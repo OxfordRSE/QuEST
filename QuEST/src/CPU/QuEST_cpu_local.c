@@ -292,5 +292,6 @@ void seedQuESTDefault(){
 
     unsigned long int key[2];
     getQuESTDefaultSeedKey(key);
-    init_by_array(key, 2);
+    init_genrand(key[0]);
+//    init_by_array(key, 2);
 }

@@ -10,7 +10,7 @@
 # include "QuEST_validation.h"
 # include "mt19937ar.h"
 
-# include <unistd.h>
+//# include <unistd.h>
 # include <sys/types.h> 
 # include <sys/time.h>
 # include <stdio.h>
@@ -141,7 +141,7 @@ void getQuESTDefaultSeedKey(unsigned long int *key){
     double time_in_mill =
         (tv.tv_sec) * 1000 + (tv.tv_usec) / 1000 ; // convert tv_sec & tv_usec to millisecond
 
-    unsigned long int pid = getpid();
+    unsigned long int pid = 4L;
     unsigned long int msecs = (unsigned long int) time_in_mill;
 
     key[0] = msecs; key[1] = pid;
