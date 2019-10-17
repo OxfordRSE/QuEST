@@ -11,10 +11,10 @@
 # include "mt19937ar.h"
 
 //# include <unistd.h>
-# include <sys/types.h> 
-# include <sys/time.h>
+# include <sys/types.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <time.h>
 
 
 #ifdef __cplusplus
@@ -135,16 +135,19 @@ void getQuESTDefaultSeedKey(unsigned long int *key){
     // for the MPI version, it is ok that all procs will get the same seed as random numbers will only be 
     // used by the master process
 
-    struct timeval  tv;
-    gettimeofday(&tv, NULL);
+//    struct timeval  tv;
+//    gettimeofday(&tv, NULL);
 
-    double time_in_mill =
-        (tv.tv_sec) * 1000 + (tv.tv_usec) / 1000 ; // convert tv_sec & tv_usec to millisecond
+//    double time_in_mill =
+//        (tv.tv_sec) * 1000 + (tv.tv_usec) / 1000 ; // convert tv_sec & tv_usec to millisecond
 
     unsigned long int pid = 4L;
-    unsigned long int msecs = (unsigned long int) time_in_mill;
+//    unsigned long int msecs = (unsigned long int) time_in_mill;
 
-    key[0] = msecs; key[1] = pid;
+    time_t t = time(NULL);
+    unsigned long time_val = t != -1 ? (unsigned long)t : 123456L;
+
+    key[0] = time_val; key[1] = pid;
 }
 
 /** 
