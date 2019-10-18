@@ -4,6 +4,17 @@ cmake_minimum_required(VERSION 3.1)
 # Project name
 project(QuEST_Project)
 
+#Set whether this is a statically or dynamically-linked build
+if (WIN32 OR CYGWIN)
+    option (BUILD_SHARED_LIBS
+            "Set whether we are set whether to generate dynamic-linked libraries. OFF by default"
+            OFF)
+else ()
+    option (BUILD_SHARED_LIBS
+            "Set whether we are set whether to generate dynamic-linked libraries. ON by default"
+            ON)
+endif ()
+
 # -----------------------------------------------------------------------------
 # ----- USER OPTIONS ----------------------------------------------------------
 # -----------------------------------------------------------------------------
@@ -41,7 +52,7 @@ message(STATUS "Compiling ${USER_SOURCE} to executable ${OUTPUT_EXE}")
 add_executable(${OUTPUT_EXE} ${USER_SOURCE})
 
 # Link libraries to user executable, including QuEST library
-target_link_libraries(${OUTPUT_EXE} QuEST m)
+target_link_libraries(${OUTPUT_EXE} QuEST)
 
 # -----------------------------------------------------------------------------
 # ----- UTILS -----------------------------------------------------------------

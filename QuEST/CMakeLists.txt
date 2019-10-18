@@ -280,11 +280,11 @@ endif()
 add_subdirectory(src)
 
 if (GPUACCELERATED)
-    cuda_add_library(QuEST SHARED
+    cuda_add_library(QuEST
         ${QuEST_SRC}
     )
 else ()
-    add_library(QuEST SHARED
+    add_library(QuEST
         ${QuEST_SRC}
     )
 endif()
