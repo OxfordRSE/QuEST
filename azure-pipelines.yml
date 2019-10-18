@@ -26,21 +26,21 @@ strategy:
       pythonVer: '3.7'
       cmakeConfigArgs: ''
       cmakeBuildArgs: '--target QuEST'
-      jobType: 'compile-only'
+      jobType: 'python-testing'
     # macOS High Sierra (testing)
     macOS-13-test:
       imageName: 'macOS-10.13'
       pythonVer: '3.5'
       cmakeConfigArgs: ''
       cmakeBuildArgs: '--target QuEST'
-      jobType: 'compile-only'
+      jobType: 'python-testing'
     # Windows (testing)
     Windows-unit:
       imageName: 'windows-2019'
       pythonVer: '3.7'
       cmakeConfigArgs: ''
       cmakeBuildArgs: '--target QuEST'
-      jobType: 'compile-only'
+      jobType: 'python-testing'
 
 trigger:
   - master

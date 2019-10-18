@@ -8,7 +8,8 @@ QuESTLib = None
 QuESTVer = ""
 def init_QuESTLib(QuESTPath = ""):
     global QuESTLib
-    QuESTPath = QuESTPath.rstrip('/ ') + "/libQuEST.so"
+    # QuESTPath = QuESTPath.rstrip('/ ') + "/libQuEST.so"
+    QuESTPath = QuESTPath.strip()
     if not os.path.isfile(QuESTPath):
         raise FileNotFoundError(fnfWarning.format(QuESTPath))
     QuESTLib = CDLL(QuESTPath)
